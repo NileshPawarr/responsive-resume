@@ -499,7 +499,12 @@ img {
 .languages_name {
   display: flex;
   align-items: center;
+}
+.skills_name {
   margin-bottom: var(--mb-3);
+}
+.languages_name {
+  margin-bottom: var(--mb-1);
 }
 
 .skills_circle,
