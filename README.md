@@ -2,4 +2,4 @@
 
 # My Resume thumbnail:
 
-![Resume](assets/img/Resume.png)
+![Resume](src/assets/img/Resume.png)
