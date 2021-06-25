@@ -1,0 +1,23 @@
+{
+    "name": "responsive-resume",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "keywords": [],
+    "author": "Nilesh Pawar",
+    "license": "ISC",
+    "homepage": "https://nileshpawarr.github.io/responsive-resume",
+    "scripts": {
+        "clean": "rd /s /q dist",
+        "start": "parcel src/index.html",
+        "build-prod": "npm run clean && parcel build src/index.html",
+        "predeploy": "npm run build-prod",
+        "deploy": "gh-pages -d dist"
+    },
+    "devDependencies": {
+        "parcel-bundler": "^1.9.4"
+    },
+    "dependencies": {
+        "gh-pages": "^3.2.3"
+    }
+}
