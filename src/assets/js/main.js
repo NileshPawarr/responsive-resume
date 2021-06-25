@@ -95,12 +95,12 @@ function scrollActive() {
         const sectionHeight = current.offsetHeight;
         const sectionTop = current.offsetTop - 50;
         sectionId = current.getAttribute('id');
+        const section = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link');
-        } else {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link');
-        }
+        (section) &&
+            ((scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) ?
+                section.classList.add('active-link') : section.classList.remove('active-link'));
+
     });
 }
 window.addEventListener('scroll', scrollActive);

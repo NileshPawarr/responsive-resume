@@ -8,9 +8,9 @@
     "license": "ISC",
     "homepage": "https://nileshpawarr.github.io/responsive-resume",
     "scripts": {
-        "clean": "rd /s /q dist",
+        "clean": "rmdir /Q /S dist",
         "start": "parcel src/index.html",
-        "build-prod": "npm run clean && parcel build src/index.html",
+        "build-prod": "parcel build src/index.html",
         "predeploy": "npm run build-prod",
         "deploy": "gh-pages -d dist"
     },
