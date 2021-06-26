@@ -1,8 +1,8 @@
 /* PROFILE */
-function getExperience() {
+const getExperience = () => {
     let dateString = "01/06/2014",
         now = new Date(),
-        today = new Date(now.getYear(), now.getMonth(), now.getDate()),
+        // today = new Date(now.getYear(), now.getMonth(), now.getDate()),
         yearNow = now.getYear(),
         monthNow = now.getMonth(),
         dateNow = now.getDate(),
@@ -19,17 +19,19 @@ function getExperience() {
         yearString = "",
         monthString = "",
         yearAge = yearNow - yearDob;
+    let dateAge = '';
+    let monthAge = '';
 
-    if (monthNow >= monthDob) var monthAge = monthNow - monthDob;
+    if (monthNow >= monthDob) monthAge = monthNow - monthDob;
     else {
         yearAge--;
-        var monthAge = 12 + monthNow - monthDob;
+        monthAge = 12 + monthNow - monthDob;
     }
 
-    if (dateNow >= dateDob) var dateAge = dateNow - dateDob;
+    if (dateNow >= dateDob) dateAge = dateNow - dateDob;
     else {
         monthAge--;
-        var dateAge = 31 + dateNow - dateDob;
+        dateAge = 31 + dateNow - dateDob;
 
         if (monthAge < 0) {
             monthAge = 11;
@@ -43,17 +45,12 @@ function getExperience() {
         days: dateAge,
     };
 
-    if (age.years > 1) yearString = " years";
-    else yearString = " year";
-    if (age.months > 1) monthString = " months";
-    else monthString = " month";
+    yearString = (age.years > 1) ? " years" : " year";
+    monthString = (age.months > 1) ? " months" : " month";
 
-    if (age.years > 0 && age.months > 0)
-        ageString = age.years + yearString + " and " + age.months + monthString;
-    /* else if (age.years > 0 && age.months == 0 && age.days == 0)
-        ageString = age.years + yearString + " Happy Work Anniversary to ME!!"; */
-    else if (age.years > 0 && age.months == 0)
-        ageString = age.years + yearString;
+    ageString = (age.years > 0 && age.months > 0) ?
+        age.years + yearString + " and " + age.months + monthString :
+        ((age.years > 0 && age.months == 0) ? age.years + yearString : ageString);
 
     return ageString;
 };
@@ -76,41 +73,40 @@ const showMenu = (toggleId, navId) => {
 showMenu('nav-toggle', 'nav-menu');
 
 /* REMOVE MENU MOBILE */
-const navLink = document.querySelectorAll('.nav__link');
+const navLink = document.querySelectorAll('.nav_link');
 
-function linkAction() {
+const linkAction = () => {
     const navMenu = document.getElementById('nav-menu');
-    /* When we click on each nav__link, we remove the show-menu class */
+    /* When we click on each nav_link, we remove the show-menu class */
     navMenu.classList.remove('show-menu');
-}
+};
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
 /* SCROLL SECTIONS ACTIVE LINK */
 const sections = document.querySelectorAll('section[id]');
 
-function scrollActive() {
+const scrollActive = () => {
     const scrollY = window.pageYOffset;
 
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight;
         const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id');
-        const section = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+        const sectionId = current.getAttribute('id');
+        const section = document.querySelector('.nav_menu a[href*=' + sectionId + ']');
 
-        (section) &&
-            ((scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) ?
-                section.classList.add('active-link') : section.classList.remove('active-link'));
+        (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) ?
+            section.classList.add('active-link') : section.classList.remove('active-link');
 
     });
-}
+};
 window.addEventListener('scroll', scrollActive);
 
 /* SHOW SCROLL TOP */
-function scrollTop() {
+const scrollTop = () => {
     const scrollTop = document.getElementById('scroll-top');
     /* When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class */
-    scrollTop && ((this.scrollY >= 200) ? scrollTop.classList.add('show-scroll') : scrollTop.classList.remove('show-scroll'));
-}
+    (this.scrollY >= 200) ? scrollTop.classList.add('show-scroll') : scrollTop.classList.remove('show-scroll');
+};
 window.addEventListener('scroll', scrollTop);
 
 /* DARK LIGHT THEME */
@@ -144,24 +140,24 @@ themeButton.addEventListener('click', () => {
 });
 
 /* REDUCE THE SIZE AND PRINT ON AN A4 SHEET */
-function scaleCv() {
+const scaleCv = () => {
     document.body.classList.add('scale-cv');
-}
+};
 
 /* REMOVE THE SIZE WHEN THE CV IS DOWNLOADED */
-function removeScale() {
+const removeScale = () => {
     document.body.classList.remove('scale-cv');
-}
+};
 
 /* GENERATE PDF */
 
 /* PDF generated area */
-let areaCv = document.getElementById('area-cv');
+const areaCv = document.getElementById('area-cv');
 
-let resumeButton = document.getElementById('resume-button');
+const resumeButton = document.getElementById('resume-button');
 
 /* Html2pdf options */
-let opt = {
+const opt = {
     margin: 0,
     filename: 'Nilesh-Pawar-Resume.pdf',
     image: { type: 'jpeg', quality: 0.98 },
@@ -170,9 +166,9 @@ let opt = {
 };
 
 /* Function to call areaCv and Html2Pdf options */
-function generateResume() {
+const generateResume = () => {
     html2pdf(areaCv, opt);
-}
+};
 
 /* When the button is clicked, it executes the three functions */
 resumeButton.addEventListener('click', () => {

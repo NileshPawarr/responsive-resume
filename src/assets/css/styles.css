@@ -237,7 +237,7 @@ img {
 
 /* CLASS CSS */
 .section {
-  padding: 1.5rem 0;
+  padding: 1.8rem 0;
 }
 
 .section-title {
@@ -564,7 +564,7 @@ img {
   border-radius: 0.4rem;
   z-index: var(--z-tooltip);
   transition: 0.4s;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .scrolltop_icon {
