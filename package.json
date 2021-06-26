@@ -10,7 +10,7 @@
     "scripts": {
         "clean": "rmdir /Q /S dist",
         "start": "parcel src/index.html",
-        "build-prod": "npm run clean && parcel build --public-url ./ src/index.html --no-source-maps",
+        "build-prod": "npm run clean && parcel build --public-url ./ src/index.html",
         "predeploy": "npm run build-prod",
         "deploy": "gh-pages -d dist"
     },
