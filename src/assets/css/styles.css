@@ -521,17 +521,17 @@ img {
   font-size: var(--h3-font-size);
   margin-bottom: var(--mb-1);
 }
-/* REFERENCES */
-.references_content {
+/* AWARDS */
+.awards_content {
   gap: 0.25rem;
 }
 
-.references_subtitle {
+.awards_subtitle {
   color: var(--text-color-light);
 }
 
-.references_subtitle,
-.references_contact {
+.awards_subtitle,
+.awards_contact {
   font-size: var(--smaller-font-size);
 }
 /* INTERESTS */
@@ -640,7 +640,7 @@ img {
     display: none;
   }
 
-  .references_container {
+  .awards_container {
     grid-template-columns: repeat(2, 1fr);
   }
 

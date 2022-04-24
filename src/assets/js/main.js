@@ -160,7 +160,7 @@ const resumeButton = document.getElementById('resume-button');
 const opt = {
     margin: 0,
     filename: 'Nilesh-Pawar-Resume.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
+    image: { type: 'jpeg', quality: 1 },
     html2canvas: { scale: 4 },
     jsPDF: { format: 'a4', orientation: 'portrait' }
 };
