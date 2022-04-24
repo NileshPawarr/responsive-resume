@@ -15,7 +15,7 @@
         "deploy": "gh-pages -d dist"
     },
     "devDependencies": {
-        "parcel-bundler": "^1.9.4"
+        "parcel-bundler": "^1.12.5"
     },
     "dependencies": {
         "gh-pages": "^3.2.3"
